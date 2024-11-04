@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>véletlen számgenerátor</title>
+    <style>
+        .szam {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 300px;
+        }
+        .szam div {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 0; 
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function shuffleNumbers(){
+            const grid = document.getElementById('grid');
+            const numbers = Array.from(grid.children);
+            const shuffled = numbers.sort(() => Math.random() - 0.5);
+
+            grid.innnerHTML = "";
+            shuffled.forEach(number => grid.appendChild(number)); 
+        }
+    </script>
+        <div id="grid" class="szam">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <button onclick="shuffleNumbers()">Gomb</button>
+</body>
+</html>
